@@ -26,11 +26,8 @@ switch ($page) {
     case 'admin-register':
         require '../App/Views/dashboard-lte/register.php';
         break;
-    case 'Orders':
-        require '../App/Views/dashboard-lte/orders.php';
-        break;
-    case 'order-detail':
-        require '../App/Views/dashboard-lte/doctor-detail.php';
+    case 'users':
+        require '../App/Views/dashboard-lte/users.php';
         break;
     case 'majors':
         require '../App/Views/dashboard-lte/Majors.php';
@@ -53,13 +50,16 @@ switch ($page) {
     case 'Edit-Doctor':
         require '../App/Views/dashboard-lte/crud_doctor/edit-doctor.php';
         break;
+    case 'doctor-detail':
+        require '../App/Views/dashboard-lte/doctor-detail.php';
+        break;
     case 'Control-Doctor':
         require '../App/Controllers/DoctorControl.php';
         break;
     case "admin-sign-up":
         require("../App/Controllers/registercontrol.php");
         break;
-    case "sign-in":
+    case "admin-sign-in":
         require("../App/Controllers/logincontrol.php");
         break;
     case "logout":

@@ -110,7 +110,7 @@ $doctors = Doctor::getAll($pdo);
                                                     <td>
                                                         <img src="/329xampp/clinic-dashboard/public/uploads/<?= $doctor->getImage() ?>" alt="<?= $doctor->getImage() ?>" class="Major-image" width="120">
                                                     </td>
-                                                    <td><?= htmlspecialchars($doctor->getName()) ?></td>
+                                                    <td><a href="dashboard.php?page=doctor-detail&id=<?= $doctor->getId() ?>"><?= htmlspecialchars($doctor->getName()) ?></a></td>
 
                                                     <td><?= htmlspecialchars($doctor->getMajorName()) ?></td>
                                                     <td><?= htmlspecialchars($doctor->getPhone()) ?></td>
@@ -121,7 +121,7 @@ $doctors = Doctor::getAll($pdo);
                                                             class="btn btn-primary btn-sm" title="Edit">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <a href="dashboard.php?page=Control-Doctor&action=delete-doctor&id=<?= $doctor->getId() ?>"
+                                                        <a href="dashboard.php?page=Control-Doctor&action=delete-doctor&id=<?= $doctor->getId()?>"
                                                             class="btn btn-danger btn-sm" title="Delete"
                                                             onclick="return confirm('Are you sure you want to delete this doctor?')">
                                                             <i class="fas fa-trash"></i>

@@ -21,7 +21,7 @@
 			  	</div>
 			  	<div class="card-body">
 					<p class="login-box-msg">Sign in to start your session</p>
-					<form action="dashboard.php?page=sign-in" method="post">
+					<form action="dashboard.php?page=admin-sign-in" method="post">
 				  		<div class="input-group mb-3">
 							<input type="email" class="form-control" name="email" placeholder="Email">
 							<div class="input-group-append">

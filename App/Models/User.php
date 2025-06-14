@@ -74,6 +74,24 @@ class User
 
         return null;
     }
+
+    public static function getByEmail(PDO $pdo, string $email): ?self
+    {
+        $query = "SELECT * FROM users WHERE email = :email LIMIT 1";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $user ? new self(
+            $user['id'],
+            $user['name'],
+            $user['email'],
+            $user['password'],
+            $user['phone'],
+            $user['role']
+        ) : null;
+    }
+
     public static function login(PDO $pdo, string $email, string $password): ?self
     {
         $query = "SELECT * FROM users WHERE email = :email LIMIT 1";
@@ -98,4 +116,26 @@ class User
         unset($_SESSION['user']);
         session_destroy();
     }
+
+    public static function countPatients(PDO $pdo): int
+{
+    $stmt = $pdo->query("SELECT COUNT(*) FROM users WHERE role = 'patient'");
+    return (int)$stmt->fetchColumn();
+}
+
+public static function getById(PDO $pdo, int $id): ?self
+{
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+    $stmt->execute(['id' => $id]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $user ? new self(
+        $user['id'],
+        $user['name'],
+        $user['email'],
+        $user['password'],
+        $user['phone'],
+        $user['role']
+    ) : null;
+}
 }

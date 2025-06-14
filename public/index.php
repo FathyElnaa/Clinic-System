@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../App/config/database.php";
-$maintenance = false; // غيرها إلى true لتفعيل وضع الصيانة
+
 
 
 
@@ -34,6 +34,9 @@ switch ($page) {
         break;
     case 'Doctor':
         require '../App/Views/clinic/doctor.php';
+        break;
+    case 'Appointments-book':
+        require '../App/Controllers/AppointmentControl.php';
         break;
     case 'Contact':
         require '../App/Views/clinic/contact.php';

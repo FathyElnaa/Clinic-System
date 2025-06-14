@@ -110,7 +110,7 @@ class Doctor
                 $row['consultation_fee'],
                 $row['major_id'],
                 $row['experience_years'],
-                $row['major_name'] 
+                $row['major_name']
 
             );
         }
@@ -139,7 +139,7 @@ class Doctor
             $row['consultation_fee'],
             $row['major_id'],
             $row['experience_years'],
-            $row['major_name'] 
+            $row['major_name']
 
         );
     }
@@ -214,4 +214,12 @@ class Doctor
             ':major_id' => $major_id
         ]);
     }
+
+    public static function countAll(PDO $pdo): int
+    {
+        $stmt = $pdo->query("SELECT COUNT(*) FROM doctors");
+        return (int)$stmt->fetchColumn();
+    }
+
+    
 }
